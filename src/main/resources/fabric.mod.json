@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "Makes loot containers regenerate their loot after some time",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "sources": "https://github.com/PssbleTrngle/${repository}",
+    "issues": "https://github.com/PssbleTrngle/${repository}/issues"
+  },
+  "license": "https://github.com/PssbleTrngle/${repository}/blob/1.20.x/LICENSE.txt",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.possible_triangle.renewable_loot.FabricEntrypoint"
+    ]
+  },
+  "mixins": [
+    "${mod_id}.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14",
+    "minecraft": ">=1.20.1",
+    "java": ">=17"
+  }
+}

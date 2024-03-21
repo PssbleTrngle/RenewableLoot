@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.possible_triangle.renewable_loot.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "${mod_id}-${mod_version}-refmap.json",
+  "mixins": [
+    "ExplosionDamageCalculatorMixin", "HopperBlockEntityMixin",
+    "RandomizableContainerBlockEntityAccessor", "RandomizableContainerBlockEntityMixin", "ServerPlayerGameModeAccessor",
+    "ServerPlayerGameModeMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
