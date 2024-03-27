@@ -12,8 +12,10 @@ public class Constants {
 
     public static final String GEN_COUNT_TAG = "GenerationCount";
 
-    public static final String REGEN_DISABLED_TAG = "RegenDisabled";
+    public static final String REGEN_TYPE_TAG = "RegenType";
 
     public static final String LAST_PLAYER_TAG = "LastOpenedBy";
+
+    public static final String ALL_PLAYERS_TAG = "RewardedPlayers";
 
 }
