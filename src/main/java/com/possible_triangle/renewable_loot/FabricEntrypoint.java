@@ -2,6 +2,7 @@ package com.possible_triangle.renewable_loot;
 
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BrushableBlockEntity;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
@@ -13,6 +14,7 @@ public class FabricEntrypoint implements ModInitializer {
     }
 
     public static boolean isLootContainer(@Nullable BlockEntity blockEntity) {
+        if (blockEntity instanceof BrushableBlockEntity) return true;
         if (!(blockEntity instanceof RandomizableContainerBlockEntity)) return false;
 
         var nbt = blockEntity.saveWithoutMetadata();
