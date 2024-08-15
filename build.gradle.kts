@@ -15,7 +15,7 @@ enablePublishing {
 }
 
 dependencies {
-    "include"(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:${mixin_extras_version}")!!)!!)
+   "include"(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:${mixin_extras_version}")!!)!!)
 }
 
 uploadToCurseforge()
