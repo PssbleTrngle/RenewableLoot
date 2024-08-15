@@ -1,6 +1,7 @@
 package com.possible_triangle.renewable_loot;
 
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BrushableBlockEntity;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
@@ -17,7 +18,10 @@ public class FabricEntrypoint implements ModInitializer {
         if (blockEntity instanceof BrushableBlockEntity) return true;
         if (!(blockEntity instanceof RandomizableContainerBlockEntity)) return false;
 
-        var nbt = blockEntity.saveWithoutMetadata();
+        var level = blockEntity.getLevel();
+        if (!(level instanceof ServerLevel)) return false;
+
+        var nbt = blockEntity.saveWithoutMetadata(level.getServer().registryAccess());
 
         if (nbt.contains("LootTable")) return true;
         if (nbt.contains(Constants.SAVED_TABLE_TAG)) return true;

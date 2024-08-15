@@ -43,7 +43,7 @@ public class BrushableBlockEntityMixin {
             method = "unpackLootTable(Lnet/minecraft/world/entity/player/Player;)V",
             at = @At(
                     value = "FIELD",
-                    target = "Lnet/minecraft/world/level/block/entity/BrushableBlockEntity;lootTable:Lnet/minecraft/resources/ResourceLocation;",
+                    target = "Lnet/minecraft/world/level/block/entity/BrushableBlockEntity;lootTable:Lnet/minecraft/resources/ResourceKey;",
                     opcode = Opcodes.PUTFIELD,
                     shift = At.Shift.BEFORE
             )

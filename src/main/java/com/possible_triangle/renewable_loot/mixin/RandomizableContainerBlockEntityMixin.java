@@ -3,6 +3,7 @@ package com.possible_triangle.renewable_loot.mixin;
 import com.possible_triangle.renewable_loot.Config;
 import com.possible_triangle.renewable_loot.RegenerativeLoot;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.RandomizableContainer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import org.objectweb.asm.Opcodes;
@@ -13,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(RandomizableContainerBlockEntity.class)
+@Mixin(RandomizableContainer.class)
 public class RandomizableContainerBlockEntityMixin {
 
     @Unique
@@ -22,9 +23,8 @@ public class RandomizableContainerBlockEntityMixin {
     @Inject(
             method = "unpackLootTable(Lnet/minecraft/world/entity/player/Player;)V",
             at = @At(
-                    value = "FIELD",
-                    target = "Lnet/minecraft/world/level/block/entity/RandomizableContainerBlockEntity;lootTable:Lnet/minecraft/resources/ResourceLocation;",
-                    opcode = Opcodes.PUTFIELD,
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/RandomizableContainer;setLootTable(Lnet/minecraft/resources/ResourceKey;)V",
                     shift = At.Shift.BEFORE
             )
     )

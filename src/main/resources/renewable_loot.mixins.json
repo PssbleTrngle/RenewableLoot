@@ -7,8 +7,7 @@
   "mixins": [
     "BrushableBlockEntityAccessor", "BrushableBlockEntityMixin", "ExplosionDamageCalculatorMixin",
     "HopperBlockEntityMixin", "RandomizableContainerBlockEntityAccessor", "RandomizableContainerBlockEntityMixin",
-    "ServerPlayerGameModeAccessor", "ServerPlayerGameModeMixin", "ShapedRecipeMixin", "SmithingTransformRecipeAccessor",
-    "SmithingTransformRecipeMixin"
+    "ServerPlayerGameModeAccessor", "ServerPlayerGameModeMixin"
   ],
   "injectors": {
     "defaultRequire": 1

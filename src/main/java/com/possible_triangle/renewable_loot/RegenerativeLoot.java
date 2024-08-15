@@ -1,10 +1,13 @@
 package com.possible_triangle.renewable_loot;
 
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtUtils;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.storage.loot.LootTable;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -16,7 +19,7 @@ import java.util.function.Consumer;
 public final class RegenerativeLoot {
 
     @Nullable
-    private ResourceLocation savedLootTable;
+    private ResourceKey<LootTable> savedLootTable;
 
     private Long lastGeneration = -1L;
 
@@ -33,7 +36,7 @@ public final class RegenerativeLoot {
         return regenType;
     }
 
-    public void saveTimestamp(@Nullable Player player, @Nullable ResourceLocation lootTable) {
+    public void saveTimestamp(@Nullable Player player, @Nullable ResourceKey<LootTable> lootTable) {
         generatedCount++;
         lastGeneration = System.currentTimeMillis();
         if (player != null) {
@@ -58,7 +61,7 @@ public final class RegenerativeLoot {
         return now - lastGeneration >= Config.INSTANCE.getTimeout();
     }
 
-    public void onLooted(@Nullable Player player, Consumer<ResourceLocation> setLootTable) {
+    public void onLooted(@Nullable Player player, Consumer<ResourceKey<LootTable>> setLootTable) {
         if (canRegenrate(player)) {
             setLootTable.accept(savedLootTable);
         }
@@ -86,7 +89,7 @@ public final class RegenerativeLoot {
         if (nbt.contains(Constants.TIMESTAMP_TAG)) lastGeneration = nbt.getLong(Constants.TIMESTAMP_TAG);
 
         if (nbt.contains(Constants.SAVED_TABLE_TAG))
-            savedLootTable = new ResourceLocation(nbt.getString(Constants.SAVED_TABLE_TAG));
+            savedLootTable = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.parse(nbt.getString(Constants.SAVED_TABLE_TAG)));
 
         if (nbt.contains(Constants.GEN_COUNT_TAG)) generatedCount = nbt.getInt(Constants.GEN_COUNT_TAG);
 
