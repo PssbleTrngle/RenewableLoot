@@ -5,13 +5,8 @@ pluginManagement {
         gradlePluginPortal()
         maven { url = uri("https://maven.minecraftforge.net/") }
         maven { url = uri("https://repo.spongepowered.org/repository/maven-public/") }
+        maven { url = uri("https://maven.neoforged.net/releases/") }
     }
-    plugins {
-        kotlin("jvm") version "1.9.22"
-    }
-}
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
 }
 
 rootProject.name = mod_name
