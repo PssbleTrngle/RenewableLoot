@@ -16,4 +16,8 @@ public class Config {
         return true;
     }
 
+    public boolean disableBreakingPots() {
+        return false;
+    }
+
 }

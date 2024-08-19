@@ -5,8 +5,9 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "${mod_id}-${mod_version}-refmap.json",
   "mixins": [
-    "BrushableBlockEntityAccessor", "BrushableBlockEntityMixin", "ExplosionDamageCalculatorMixin",
-    "HopperBlockEntityMixin", "RandomizableContainerBlockEntityAccessor", "RandomizableContainerBlockEntityMixin",
+    "BrushableBlockEntityAccessor", "BrushableBlockEntityMixin", "DecoratedPotBlockEntityAccessor",
+    "DecoratedPotBlockEntityMixin", "ExplosionDamageCalculatorMixin", "HopperBlockEntityMixin",
+    "RandomizableContainerBlockEntityAccessor", "RandomizableContainerBlockEntityMixin", "RandomizableContainerMixin",
     "ServerPlayerGameModeAccessor", "ServerPlayerGameModeMixin"
   ],
   "injectors": {

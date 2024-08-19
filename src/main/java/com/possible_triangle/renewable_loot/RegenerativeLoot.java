@@ -70,7 +70,7 @@ public final class RegenerativeLoot {
     public void save(CompoundTag nbt) {
         if (lastGeneration > 0) nbt.putLong(Constants.TIMESTAMP_TAG, lastGeneration);
 
-        if (savedLootTable != null) nbt.putString(Constants.SAVED_TABLE_TAG, savedLootTable.toString());
+        if (savedLootTable != null) nbt.putString(Constants.SAVED_TABLE_TAG, savedLootTable.location().toString());
 
         nbt.putInt(Constants.GEN_COUNT_TAG, generatedCount);
 

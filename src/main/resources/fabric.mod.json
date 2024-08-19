@@ -21,6 +21,10 @@
   "mixins": [
     "${mod_id}.mixins.json"
   ],
+  "custom": {
+    "net/minecraft/class_2621": "com/possible_triangle/renewable_loot/RegenerativeContainer",
+    "net/minecraft/class_8172": "com/possible_triangle/renewable_loot/RegenerativeContainer"
+  },
   "depends": {
     "fabricloader": ">=0.14",
     "minecraft": ">=1.21.1",
